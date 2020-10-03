@@ -1,9 +1,12 @@
 import React from 'react'
 
-export const RestourantdetailPage = () => {
+const RestourantdetailPage = () => {
     return (
         <div>
-            Detail Page
+            Detail page
         </div>
     )
 }
+
+export default RestourantdetailPage
+

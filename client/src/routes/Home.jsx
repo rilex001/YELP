@@ -1,10 +1,17 @@
 import React from 'react'
+import AddRestaurant from '../components/AddRestaurant'
+import Header from '../components/Header'
+import RestourantList from '../components/RestaurantList'
 
-export const Home = () => {
+const Home = () => {
     return (
         <div>
-            Home
+            <Header />
+            <AddRestaurant />
+            <RestourantList />
         </div>
     )
 }
+
+export default Home
 
