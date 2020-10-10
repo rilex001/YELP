@@ -2,10 +2,11 @@ require("dotenv").config()
 const express = require("express")
 const db = require("./db/index")
 const morgan = require('morgan')
-
+const cors = require('cors')
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 // Get all restaurants
@@ -33,10 +34,21 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
     
     
     try {
-      const results = await db.query(
+        const restaurant = await db.query(
           `select * from restaurant where id = $1  `, [req.params.id]
-        )   
-        console.log(results.rows[0])
+        )  
+
+        const reviews = await db.query(
+            `select * from reviews where id = $1  `, [req.params.id]
+        ) 
+
+        res.status(200).json({
+            status: "succes",
+            data: {
+                restaurant: restaurant.rows[0],
+                reviews: reviews.rows
+            },
+        })
     } catch(err) {
         console.log(err)
     }
@@ -94,6 +106,8 @@ app.delete("/api/v1/restaurants/:id", async (req, res) => {
 
     
 })
+
+
 
 
 const port = process.env.PORT || 3001
