@@ -4,6 +4,7 @@ import Home from './routes/Home'
 import  UpdatePage  from './routes/UpdatePage'
 import RestourantDetailPage from './routes/RestourantDetailPage'
 import { RestaurantsContextProvider } from './context/RestaurantsContext'
+import Landing from './components/Landing'
 
 
 
@@ -13,7 +14,7 @@ export const App = () => {
       <div className="container">
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Landing} />
             <Route exact path="/restaurants/:id/update" component={UpdatePage} />
             <Route exact path="/restaurants/:id" component={RestourantDetailPage} />
           </Switch>
