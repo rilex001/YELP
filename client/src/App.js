@@ -5,6 +5,7 @@ import  UpdatePage  from './routes/UpdatePage'
 import RestourantDetailPage from './routes/RestourantDetailPage'
 import { RestaurantsContextProvider } from './context/RestaurantsContext'
 import Landing from './components/Landing'
+import SignUp from './components/SignUp'
 
 
 
@@ -15,6 +16,8 @@ export const App = () => {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/restaurant" component={Home} />
+            <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/restaurants/:id/update" component={UpdatePage} />
             <Route exact path="/restaurants/:id" component={RestourantDetailPage} />
           </Switch>
